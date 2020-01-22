@@ -1,0 +1,20 @@
+{
+  "name": "habitual",
+  "version": "1.0.0",
+  "description": "This project is based off the MEAN stack (MongoDB, Express, Angular, Node) that will track a user's habits.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.0",
+    "moment": "^2.24.0",
+    "mongoose": "^5.8.9"
+  }
+}
