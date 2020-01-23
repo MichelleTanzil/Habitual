@@ -11,9 +11,10 @@ The habits are seperated into 4 categories:
 
 ## Features
 CRUD - Habits
-Login & Registration - User
+Login & Registration
 Update User
 
 
 ### Progress
 Day 1 (10/21): Created wireframe using Balsamiq, initialized backend and database (MongoDB, Express, and Node)
+Day 2 (10/22): Added Angular, and login & registration for the backend
