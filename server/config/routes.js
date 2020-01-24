@@ -1,22 +1,25 @@
 var habitsController = require("../controllers/habits.js");
-var userController = require("../controllers/user.js");
+var userController = require("../controllers/users.js");
+const path = require("path");
 
-module.exports = function (app) {
+module.exports = function(app) {
   //User Routes
   app.post("/register", userController.register);
   app.post("/login", userController.login);
-  app.get("/current-user", userController.getCurrentUser)
+  app.get("/current-user", userController.getCurrentUser);
+  app.delete("/logout", userController.logout);
+
   //Habit Routes
-  // Get all products
-  app.get("/habits", habitsController.getAll);
+  // Get all habits
+  app.get("/habits", habitsController.getAllForUser);
   // Get one habit
-  app.get("/habits/:id", habitsController.getOne);
+  app.get("/habits/:id", habitsController.getOneForUser);
   //Create new habit
-  app.post("/habits", habitsController.create);
-  //Delete habit
-  app.post("/habits/:id", habitsController.delete);
-  //Update habit
-  app.put("/habits/:id", habitsController.update);
+  // app.post("/habits", habitsController.create);
+  // //Delete habit
+  // app.post("/habits/:id", habitsController.delete);
+  // //Update habit
+  // app.put("/habits/:id", habitsController.update);
   //Default route
   app.all("*", (req, res, next) => {
     res.sendFile(path.resolve("./public/dist/public/index.html"));

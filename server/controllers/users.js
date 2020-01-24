@@ -6,12 +6,11 @@ module.exports = {
     if (req.session.uId) {
       User.findOne({ _id: req.session.uId }, (err, user) => {
         if (err) {
-          res.json(err)
+          res.json(err);
+        } else {
+          res.json(user);
         }
-        else {
-          res.json(user)
-        }
-      })
+      });
     } else {
       res.json({ sessionStatus: false });
     }
@@ -42,7 +41,7 @@ module.exports = {
         res.json({ errors: "Invalid Credentials" });
       }
       if (user) {
-        console.log("user: ", user)
+        console.log("user: ", user);
         bcrypt.compare(req.body.password, user.password, (err, result) => {
           if (result) {
             res.json({ success: "Successfully logged in" });
@@ -52,5 +51,14 @@ module.exports = {
         });
       }
     });
+  },
+  logout: function(req, res) {
+    req.session = null;
+    req.session
+      .destroy()
+      .then(() => res.json({ message: "Sucessfully logged out" }))
+      .catch(err => {
+        res.json(err);
+      });
   }
 };

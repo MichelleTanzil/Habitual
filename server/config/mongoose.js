@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const fs = require("fs");
 const path = require("path");
-mongoose.connect("mongodb://localhost/habit", {
+mongoose.connect("mongodb://localhost/habitv1", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false

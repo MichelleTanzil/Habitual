@@ -1,9 +1,24 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
+import { registerLocaleData } from "@angular/common";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class HttpService {
-
-  constructor() { }
+  constructor(private _http: HttpClient) { }
+  //User
+  register(newUser: any) {
+    return this._http.post("/register", newUser);
+  }
+  login(loginUser: any) {
+    return this._http.post("/register", loginUser);
+  }
+  getCurrentUser() {
+    return this._http.get("/current-user");
+  }
+  logout() {
+    return this._http.delete("/logout");
+  }
 }

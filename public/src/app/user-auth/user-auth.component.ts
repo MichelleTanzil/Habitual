@@ -20,38 +20,25 @@ export class UserAuthComponent implements OnInit {
   }
 
   register() {
-    // let obs = this._httpService.register(this.newUser);
-    // obs.subscribe((data: any) => {
-    //   if (data.hasOwnProperty("errors")) {
-    //     this.errors = data["errors"];
-    //   } else {
-    //     this.router.navigate(["/habits"]);
-    //   }
-    // });
+    let obs = this._httpService.register(this.newUser);
+    obs.subscribe((data: any) => {
+      if (data.hasOwnProperty("errors")) {
+        this.errors = data["errors"];
+      } else {
+        this.router.navigate(["/habits"]);
+      }
+    });
   }
 
   login() {
-    // let obs = this._httpService.login(this.loginUser);
-    // obs.subscribe((data: any) => {
-    //   if (data.hasOwnProperty("errors")) {
-    //     this.errors = data["errors"];
-    //   } else {
-    //     this.router.navigate(["/habits"]);
-    //   }
-    // });
+    let obs = this._httpService.login(this.loginUser);
+    obs.subscribe((data: any) => {
+      if (data.hasOwnProperty("errors")) {
+        this.errors = data["errors"];
+      } else {
+        this.router.navigate(["/habits"]);
+      }
+    });
   }
   // TODO: html: {{errors}}
-  // TODO: Logout
-  // TODO: Add the following function in every component.ts
-  // getCurrentUser() {
-  //   let obs = this._httpService.getCurrentUser();
-  //   obs.subscribe((data: any) => {
-  //     if (!data.sessionStatus) {
-  //       this.router.navigate(["/"]);
-  //     }
-  //     else {
-  //       this.currentUser = data
-  //     }
-  //   })
-  // }
 }

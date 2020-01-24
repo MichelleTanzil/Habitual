@@ -16,5 +16,9 @@ Update User
 
 
 ### Progress
-Day 1 (10/21): Created wireframe using Balsamiq, initialized backend and database (MongoDB, Express, and Node)
-Day 2 (10/22): Added Angular, and login & registration for the backend
+Day 1 (1/21): Created wireframe using Balsamiq, initialized backend and database (MongoDB, Express, and Node)
+Day 2 (1/22): Added Angular, and login & registration for the backend
+Day 3 (1/23): Completed login and registration for frontend
+Day 4 (1/24): Cron job schedule for habits and habit front-end components
+Day 5 (1/25): Finish habit front-end components
+Day 6 (1/26): Components styling & FirebaseAuth

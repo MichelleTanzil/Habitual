@@ -1,1 +1,43 @@
-<p>user-auth works!</p>
+<h1 class="h1 text-center mt-3">Welcome to Habitual!</h1>
+<!-- <div *ngIf="errors" class="text-danger">
+  <p></p>
+</div> -->
+<div class="modal-body row">
+  <div class="col-md-6">
+    <h3 class="h3 text-center">Registration</h3>
+    <form (submit)=register()>
+      <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input type="text" name="first_name" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="last_name">Last Name</label>
+        <input type="text" name="last_name" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary">Register with Habitual</button>
+    </form>
+  </div>
+
+  <div class="col-md-6">
+    <h3 class="h3 text-center">Login</h3>
+    <form (submit)="login()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  </div>
+</div>
