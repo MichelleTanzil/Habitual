@@ -1,26 +1,28 @@
 <h1 class="h1 text-center mt-3">Welcome to Habitual!</h1>
-<!-- <div *ngIf="errors" class="text-danger">
-  <p></p>
-</div> -->
+
 <div class="modal-body row">
   <div class="col-md-6">
     <h3 class="h3 text-center">Registration</h3>
     <form (submit)=register()>
       <div class="form-group">
-        <label for="first_name">First Name</label>
-        <input type="text" name="first_name" class="form-control">
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" class="form-control" [(ngModel)]="newUser.firstName">
+        <p class="text-danger" *ngIf="registerErrors.errors.firstName">{{registerErrors.errors.firstName.message}}</p>
       </div>
       <div class="form-group">
-        <label for="last_name">Last Name</label>
-        <input type="text" name="last_name" class="form-control">
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName" class="form-control" [(ngModel)]="newUser.lastName">
+        <p class="text-danger" *ngIf="registerErrors.errors.lastName">{{registerErrors.errors.lastName.message}}</p>
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" name="email" class="form-control">
+        <input type="email" name="email" class="form-control" [(ngModel)]="newUser.email">
+        <p class="text-danger" *ngIf="registerErrors.errors.email">{{registerErrors.errors.email.message}}</p>
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" name="password" class="form-control">
+        <input type="password" name="password" class="form-control" [(ngModel)]="newUser.password">
+        <p class="text-danger" *ngIf="registerErrors.errors.password">{{registerErrors.errors.password}}</p>
       </div>
       <button type="submit" class="btn btn-primary">Register with Habitual</button>
     </form>
@@ -31,11 +33,12 @@
     <form (submit)="login()">
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" name="email" class="form-control">
+        <input type="email" name="email" class="form-control" [(ngModel)]="loginUser.email">
+        <p class="text-danger" *ngIf="loginErrors.errors">{{loginErrors.errors}}</p>
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" name="password" class="form-control">
+        <input type="password" name="password" class="form-control" [(ngModel)]="loginUser.password">
       </div>
       <button type="submit" class="btn btn-primary">Login</button>
     </form>

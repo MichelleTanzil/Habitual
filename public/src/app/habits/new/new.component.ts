@@ -1,18 +1,27 @@
 import { Component, OnInit } from "@angular/core";
-import { HttpService } from "../http.service";
+import { HttpService } from "../../http.service";
 import { Router } from "@angular/router";
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
-  selector: "app-habits",
-  templateUrl: "./habits.component.html",
-  styleUrls: ["./habits.component.css"]
+  selector: "app-new",
+  templateUrl: "./new.component.html",
+  styleUrls: ["./new.component.css"]
 })
-export class HabitsComponent implements OnInit {
+export class NewComponent implements OnInit {
+  newHabit: {};
   currentUser: {};
+
   constructor(private _httpService: HttpService, private router: Router) {
     this.currentUser = {};
+    this.newHabit = {
+      title: "",
+      importance: "",
+      frequency: "",
+      habitType: ""
+    };
   }
+
   ngOnInit() {
     this.getCurrentUser();
   }
@@ -25,13 +34,6 @@ export class HabitsComponent implements OnInit {
       } else {
         this.currentUser = data;
       }
-    });
-  }
-  logout() {
-    let obs = this._httpService.logout();
-    obs.subscribe(() => {
-      console.log("Successfully logged out");
-      this.router.navigate(["/"]);
     });
   }
 }

@@ -8,9 +8,10 @@ import { FormsModule } from "@angular/forms";
 import { UserAuthComponent } from './user-auth/user-auth.component';
 import { HabitsComponent } from './habits/habits.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { NewComponent } from './habits/new/new.component';
 
 @NgModule({
-  declarations: [AppComponent, UserAuthComponent, HabitsComponent, PagenotfoundComponent],
+  declarations: [AppComponent, UserAuthComponent, HabitsComponent, PagenotfoundComponent, NewComponent],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [HttpService],
   bootstrap: [AppComponent]

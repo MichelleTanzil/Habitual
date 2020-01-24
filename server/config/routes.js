@@ -4,18 +4,18 @@ const path = require("path");
 
 module.exports = function(app) {
   //User Routes
-  app.post("/register", userController.register);
-  app.post("/login", userController.login);
-  app.get("/current-user", userController.getCurrentUser);
-  app.delete("/logout", userController.logout);
+  app.post("/api/register", userController.register);
+  app.post("/api/login", userController.login);
+  app.get("/api/current-user", userController.getCurrentUser);
+  app.delete("/api/logout", userController.logout);
 
   //Habit Routes
   // Get all habits
-  app.get("/habits", habitsController.getAllForUser);
+  app.get("/api/habits", habitsController.getAllForUser);
   // Get one habit
-  app.get("/habits/:id", habitsController.getOneForUser);
+  app.get("/api/habits/:id", habitsController.getOneForUser);
   //Create new habit
-  // app.post("/habits", habitsController.create);
+  app.post("/api/habits", habitsController.createHabit);
   // //Delete habit
   // app.post("/habits/:id", habitsController.delete);
   // //Update habit

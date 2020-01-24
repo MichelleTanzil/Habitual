@@ -21,11 +21,11 @@ const UserSchema = new mongoose.Schema(
     email: {
       type: String,
       lowercase: true,
-      unique: true,
+      unique: [true, "Please use a different email address"],
       required: [true, "An email is required."],
-      validate: [validateEmail, "Please fill a valid email address"]
+      validate: [validateEmail, "Please use a valid email address"]
     },
-    passsword: {
+    password: {
       type: String,
       required: [true, "A password is required."],
       minlength: [6, "Your password should be at least 6 characters long"]

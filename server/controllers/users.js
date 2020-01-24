@@ -1,17 +1,21 @@
 const User = require("mongoose").model("User");
-
 const bcrypt = require("bcryptjs");
+
 module.exports = {
   getCurrentUser: (req, res) => {
+    console.log("in getCurrentUser function");
     if (req.session.uId) {
       User.findOne({ _id: req.session.uId }, (err, user) => {
         if (err) {
           res.json(err);
         } else {
-          res.json(user);
+          const user2 = { ...user };
+          user2.sessionStatus = true;
+          res.json(user2);
         }
       });
     } else {
+      console.log("no user is logged in.");
       res.json({ sessionStatus: false });
     }
   },
@@ -20,11 +24,24 @@ module.exports = {
     console.log(req.body);
     bcrypt.hash(req.body.password, 8, function(err, hash) {
       if (err) {
+        console.log(err);
         res.json(err);
       } else {
-        res.body.password = hash;
-        User.create(req.body, (err, user) => {
+        const user = {
+          email: req.body.email,
+          password: hash,
+          firstName: req.body.firstName,
+          lastName: req.body.lastName
+        };
+        console.log(user);
+        User.create(user, (err, user) => {
           if (err) {
+            if (req.body.password.length == 0) {
+              err.errors.password = "A password is required.";
+            } else if (req.body.password.length < 6) {
+              err.errors.password =
+                "Your password should be at least 6 characters long";
+            }
             res.json(err);
           } else {
             req.session.uId = user._id;
@@ -44,21 +61,18 @@ module.exports = {
         console.log("user: ", user);
         bcrypt.compare(req.body.password, user.password, (err, result) => {
           if (result) {
-            res.json({ success: "Successfully logged in" });
+            req.session.uId = user._id;
+            res.json({ sessionStatus: true });
           } else {
-            res.json({ errors: "Invalid Credentials" });
+            res.json({ sessionStatus: false });
           }
         });
       }
     });
   },
   logout: function(req, res) {
-    req.session = null;
-    req.session
-      .destroy()
-      .then(() => res.json({ message: "Sucessfully logged out" }))
-      .catch(err => {
-        res.json(err);
-      });
+    req.session.uId = null;
+    req.session.destroy();
+    res.json({ message: "Sucessfully logged out" });
   }
 };

@@ -1,0 +1,12 @@
+nav {
+  background-color: #262626;
+  font-family: "Noto Sans", sans-serif;
+}
+
+.container{
+  display: flex;
+}
+
+.habit{
+  border: 3px solid black;
+}

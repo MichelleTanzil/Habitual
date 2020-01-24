@@ -10,7 +10,7 @@ const HabitTemplateSchema = new mongoose.Schema(
     },
     importance: {
       type: String,
-      required: [true, "A habit should have an importance level"],
+      required: [true, "A habit must have an importance level"],
       enum: ["High", "Medium", "Low"]
     },
     frequency: {
