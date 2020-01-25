@@ -10,11 +10,13 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class HabitsComponent implements OnInit {
   currentUser: {};
+  habits: {}
   constructor(private _httpService: HttpService, private router: Router) {
     this.currentUser = {};
   }
   ngOnInit() {
     this.getCurrentUser();
+    this.getAllHabits();
   }
   getCurrentUser() {
     let obs = this._httpService.getCurrentUser();
@@ -32,6 +34,13 @@ export class HabitsComponent implements OnInit {
     obs.subscribe(() => {
       console.log("Successfully logged out");
       this.router.navigate(["/"]);
+    });
+  }
+  getAllHabits() {
+    let observable = this._httpService.getAllHabits();
+    observable.subscribe((data: object) => {
+      console.log("Got our data!", data);
+      this.habits = data;
     });
   }
 }

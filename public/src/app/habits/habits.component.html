@@ -9,14 +9,36 @@
 <div class="container">
   <div class="habit">
     <h3>Need To Do</h3>
+    <div *ngFor="let habit of habits">
+      <div *ngIf="habit.habitType === 'Need'">
+        <h2>{{habit.title}}</h2>
+      </div>
+    </div>
   </div>
   <div class="habit">
     <h3>Should Do</h3>
+    <div *ngFor="let habit of habits">
+      <div *ngIf="habit.habitType === 'Should'">
+        <h2>{{habit.title}}</h2>
+      </div>
+    </div>
   </div>
   <div class="habit">
     <h3>Need To Stop</h3>
+    <div *ngFor="let habit of habits">
+      <div *ngIf="habit.habitType === 'StopNeed'">
+        <h2>{{habit.title}}</h2>
+      </div>
+    </div>
   </div>
   <div class="habit">
     <h3>Should Stop </h3>
+    <div *ngFor="let habit of habits">
+      <div *ngIf="habit.habitType === 'StopShould'">
+        <h2>{{habit.title}}</h2>
+      </div>
+    </div>
   </div>
 </div>
+
+<router-outlet></router-outlet>

@@ -1,5 +1,53 @@
-<p>new works!</p>
+<form (submit)=submitNewHabit()>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <p class="text-danger" *ngIf="errors.title">{{errors.title.message}}</p>
+    <input type="text" name="title" class="form-control" [(ngModel)]="newHabit.title">
+  </div>
+  <div class="form-group">
+    <label for="habitType">Habit Type: </label>
+    <p class="text-danger" *ngIf="errors.habitType">{{errors.habitType.message}}</p>
+    <select name="habitType" class="form-control" [(ngModel)]="newHabit.habitType">
+      <option value="Need">Habit you need to take on</option>
+      <option value="StopNeed">Habit you need to stop doing</option>
+      <option value="Should" selected>Habit you should take on</option>
+      <option value="StopShould">Habit you should stop doing</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <p>Importance of this habit</p>
+    <p class="text-danger" *ngIf="errors.importance">{{errors.importance.message}}</p>
+    <div>
+      <label for="high">High</label>
+      <input type="radio" name="importance" [(ngModel)]="newHabit.importance" value="High">
+    </div>
+    <div>
+      <label for="medium">Medium</label>
+      <input type="radio" name="importance" [(ngModel)]="newHabit.importance" value="Medium">
+    </div>
+    <div>
+      <label for="low">Low</label>
+      <input type="radio" name="importance" [(ngModel)]="newHabit.importance" value="Low">
+    </div>
 
-<form></form>
+  </div>
+  <div class="form-group">
+    <label for="frequency">Frequency</label>
+    <p class="text-danger" *ngIf="errors.frequency">{{errors.frequency.message}}</p>
+    <select name="frequency" [(ngModel)]="newHabit.frequency" class="form-control">
+      <option value="8">Daily</option>
+      <option value="1">Weekly - Monday</option>
+      <option value="2">Weekly - Tuesday</option>
+      <option value="3">Weekly - Wednesday</option>
+      <option value="4">Weekly - Thursday</option>
+      <option value="5">Weekly - Friday</option>
+      <option value="6">Weekly - Saturday</option>
+      <option value="7">Weekly - Sunday</option>
+    </select>
 
-<button>Cancel</button>
+  </div>
+
+  <button>Submit</button>
+</form>
+
+<button [routerLink]="['/habits']">Cancel</button>

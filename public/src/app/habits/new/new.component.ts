@@ -11,6 +11,7 @@ import { ActivatedRoute } from "@angular/router";
 export class NewComponent implements OnInit {
   newHabit: {};
   currentUser: {};
+  errors: {};
 
   constructor(private _httpService: HttpService, private router: Router) {
     this.currentUser = {};
@@ -20,6 +21,7 @@ export class NewComponent implements OnInit {
       frequency: "",
       habitType: ""
     };
+    this.errors = {errors: ""}
   }
 
   ngOnInit() {
@@ -33,6 +35,20 @@ export class NewComponent implements OnInit {
         this.router.navigate(["/"]);
       } else {
         this.currentUser = data;
+      }
+    });
+  }
+
+  submitNewHabit() {
+    console.log(this.newHabit);
+    let obs = this._httpService.createHabit(this.newHabit);
+    obs.subscribe((newHabit: any) => {
+      console.log(newHabit);
+      if (newHabit.hasOwnProperty("errors")) {
+        this.errors = newHabit["errors"]
+      }
+      else {
+        this.router.navigate(["/habits"]);
       }
     });
   }

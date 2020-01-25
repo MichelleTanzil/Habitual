@@ -16,10 +16,10 @@ module.exports = function(app) {
   app.get("/api/habits/:id", habitsController.getOneForUser);
   //Create new habit
   app.post("/api/habits", habitsController.createHabit);
-  // //Delete habit
-  // app.post("/habits/:id", habitsController.delete);
+  // //Archive habit
+  // app.put("/habits/:id", habitsController.archiveHabit);
   // //Update habit
-  // app.put("/habits/:id", habitsController.update);
+  // app.put("/habits/:id", habitsController.updateHabit);
   //Default route
   app.all("*", (req, res, next) => {
     res.sendFile(path.resolve("./public/dist/public/index.html"));

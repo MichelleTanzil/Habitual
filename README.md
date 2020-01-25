@@ -19,6 +19,6 @@ Update User
 Day 1 (1/21): Created wireframe using Balsamiq, initialized backend and database (MongoDB, Express, and Node)
 Day 2 (1/22): Added Angular, and login & registration for the backend
 Day 3 (1/23): Added login and registration for frontend
-<!-- Day 4 (1/24): Cron job schedule for habits and habit front-end components
-Day 5 (1/25): Finish habit front-end components
+Day 4 (1/24): Fixed login/registration bugs, added feature to add habits, and view list of habits on home page
+<!-- Day 5 (1/25): Cron Jobs and Finish habit front-end components
 Day 6 (1/26): Components styling & FirebaseAuth -->

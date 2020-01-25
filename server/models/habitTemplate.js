@@ -23,13 +23,12 @@ const HabitTemplateSchema = new mongoose.Schema(
     },
     habitType: {
       type: String,
+      required: [true, "A habit type is required"],
       enum: ["Need", "StopNeed", "Should", "StopShould"]
     },
-    history: [HabitSchema],
-
+    history: [HabitSchema]
   },
-  { timestamps: true}
+  { timestamps: true }
 );
-
 
 mongoose.model("HabitTemplate", HabitTemplateSchema);

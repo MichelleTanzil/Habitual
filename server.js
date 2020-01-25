@@ -14,11 +14,15 @@ const flash = require("express-flash");
 app.use(flash());
 app.use(express.static(__dirname + "/public/dist/public"));
 app.use(express.json());
-// app.set("view engine", "ejs");
-// app.set("views", __dirname + "/client/views");
 
 //Database
 require("./server/config/mongoose.js");
+
+//Cron jobs
+// cron.schedule("", function() {
+//   console.log("Running Cron Job");
+
+// });
 
 //Routes
 require("./server/config/routes.js")(app);

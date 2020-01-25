@@ -7,7 +7,7 @@ import { registerLocaleData } from "@angular/common";
   providedIn: "root"
 })
 export class HttpService {
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) {}
   //User
   register(newUser: any) {
     return this._http.post("/api/register", newUser);
@@ -22,4 +22,13 @@ export class HttpService {
     return this._http.delete("/api/logout");
   }
   // Habit
+  getAllHabits() {
+    return this._http.get("/api/habits");
+  }
+  getOneHabit(habitId: string) {
+    return this._http.get("/api/habit/" + habitId);
+  }
+  createHabit(newHabit: any) {
+    return this._http.post("/api/habits", newHabit);
+  }
 }
