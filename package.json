@@ -15,7 +15,9 @@
     "express-flash": "0.0.2",
     "express-session": "^1.17.0",
     "moment": "^2.24.0",
+    "mongodb": "^3.5.2",
     "mongoose": "^5.8.9",
+    "mongoose-cron": "^0.5.7",
     "node-cron": "^2.0.3"
   }
 }

@@ -18,7 +18,6 @@ export class NewComponent implements OnInit {
     this.newHabit = {
       title: "",
       importance: "",
-      frequency: "",
       habitType: ""
     };
     this.errors = {errors: ""}

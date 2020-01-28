@@ -1,16 +1,19 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 
-const HabitSchema = new mongoose.Schema(
-  {
-    isCompleted: {
-      type: Boolean,
-      default: false
-    },
-    completedAt: {
-      type: Date
-    },
-  },
-  { timestamps: true }
-);
+// const HabitSchema = new mongoose.Schema(
+//   {
+//     isCompleted: {
+//       type: Boolean,
+//       default: false
+//     },
+//     completedAt: {
+//       type: Date
+//     },
+//     expireAt: {
+//       type: Date
+//     }
+//   },
+//   { timestamps: true }
+// );
 
-mongoose.model("Habit", HabitSchema);
+// mongoose.model("Habit", HabitSchema);

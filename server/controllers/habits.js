@@ -2,7 +2,7 @@ const User = require("mongoose").model("User");
 const Habit = require("mongoose").model("Habit");
 const HabitTemplate = require("mongoose").model("HabitTemplate");
 var moment = require("moment");
-const bcrypt = require("bcryptjs");
+const cron = require("node-cron");
 
 module.exports = {
   getAllForUser: function(req, res) {
@@ -53,6 +53,7 @@ module.exports = {
         res.json(err);
       });
   }
+
   // update: function(req, res) {
   //   console.log("update product id: " + req.params.id);
   //   req.body.updated_at = Date.now();
@@ -70,3 +71,24 @@ module.exports = {
   //     });
   // },
 };
+
+// cron.schedule("* * * * *",
+// function() {
+//   console.log("Running cron job every minute")
+//     User.find()
+//       .then(
+//         HabitTemplate.find({ frequency: 8 })
+//           .then(habitTemplate => {
+//             let newHabit = new Habit();
+//             habitTemplate.history.push(newHabit);
+//           })
+//           .catch(err => {
+//             console.log(err);
+//             res.json(err);
+//           })
+//       )
+//       .catch(err => {
+//         console.log(err);
+//         res.json(err);
+//       });
+//   });
